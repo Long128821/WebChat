@@ -10,12 +10,9 @@ cc.game.onStart = function(){
 
     //自动登录——初始化WbSocket
     Network.getInstance().initNetwork();
+
     //加载完毕之后
     MvcEngine.init();
-
-    //load resources
-    cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new LoginLogic());
-    }, this);
+    MvcEngine.createModule(GUI_LOGIN);//创建Table
 };
 cc.game.run();
